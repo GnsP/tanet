@@ -1,0 +1,8 @@
+{
+    "propel": {
+        "paths": {
+            "schemaDir": "\/home\/zomato\/tanet\/datastore",
+            "phpDir": "\/home\/zomato\/tanet\/datastore"
+        }
+    }
+}

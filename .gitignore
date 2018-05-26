@@ -1,3 +1,5 @@
 vendor
 node_modules
-datastore/generated-*
+datastore/generated-sql
+datastore/generated-conf
+datastore/tanet
