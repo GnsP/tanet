@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<config>
+    <propel>
+        <database>
+            <connections>
+                <connection id="tgt_odisha">
+                    <adapter>mysql</adapter>
+                    <classname>Propel\Runtime\Connection\ConnectionWrapper</classname>
+                    <dsn>mysql:host=127.0.0.1;dbname=tgt_odisha</dsn>
+                    <user>root</user>
+                    <password>mockingbird</password>
+                </connection>
+            </connections>
+        </database>
+        <runtime>
+            <defaultConnection>tgt_odisha</defaultConnection>
+            <connection>tgt_odisha</connection>
+        </runtime>
+        <generator>
+            <defaultConnection>tgt_odisha</defaultConnection>
+            <connection>tgt_odisha</connection>
+        </generator>
+    </propel>
+</config>

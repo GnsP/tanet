@@ -1,0 +1,64 @@
+<database name="tgt_odisha" defaultIdMethod="native">
+
+  <table name="teacher" phpName="teacher">
+    <column name="id" type="integer" required="true" primaryKey="true" autoIncrement="true" />
+    <column name="name" type="varchar" size="128" required="true" />
+    <column name="contact_person_name" type="varchar" size="128" required="true" phpName="contactPerson" />
+    <column name="dob" type="date" required="true" phpName="dateOfBirth" />
+    <column name="photo_url" type="varchar" size="128" required="true" phpName="photoURL" />
+
+    <column name="primary_phone" type="varchar" size="15" required="true" phpName="primaryPhone" />
+    <column name="whatsapp_number" type="varchar" size="15" phpName="whatsappNumber" />
+    <column name="email" type="varchar" size="128" />
+    <column name="present_address" type="varchar" size="512" phpName="presentAddress" />
+
+  </table>
+
+
+  <table name="district">
+    <column name="id" type="integer" required="true" primaryKey="true" autoIncrement="true" />
+    <column name="name" type="varchar" size="32" required="true" />
+
+  </table>
+
+  <table name="block">
+    <column name="id" type="integer" required="true" primaryKey="true" autoIncrement="true" />
+    <column name="name" type="varchar" size="32" required="true" />
+
+  </table>
+
+  <table name="cluster">
+    <column name="id" type="integer" required="true" primaryKey="true" autoIncrement="true" />
+    <column name="name" type="varchar" size="32" required="true" />
+
+  </table>
+
+  <table name="school">
+    <column name="id" type="integer" required="true" primaryKey="true" autoIncrement="true" />
+    <column name="name" type="varchar" size="128" required="true" />
+
+  </table>
+
+  <table name="organization">
+    <column name="id" type="integer" required="true" primaryKey="true" autoIncrement="true" />
+    <column name="name" type="varchar" size="128" required="true" />
+
+  </table>
+
+  <table name="documents">
+    <column name="id" type="integer" required="true" primaryKey="true" autoIncrement="true" />
+    <column name="name" type="varchar" size="128" required="true" />
+
+  </table>
+
+  <table name="auth">
+    <column name="entity_id" type="integer" required="true" primaryKey="true" />
+
+  </table>
+
+  <table name="permissions">
+    <column name="entity_id" type="integer" required="true" primaryKey="true" />
+
+  </table>
+
+</database>
