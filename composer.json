@@ -2,5 +2,10 @@
     "require": {
         "slim/slim": "2.*",
         "propel/propel": "~2.0@dev"
+    },
+    "autoload": {
+        "psr-4": {
+            "tanet": ["modules/", "datastore/tanet", "api/"]
+        }
     }
 }

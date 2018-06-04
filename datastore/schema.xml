@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<database name="default" defaultIdMethod="native" namespace="tanet" defaultPhpNamingMethod="underscore">
+<database name="default" defaultIdMethod="native" namespace="DB" defaultPhpNamingMethod="underscore">
 
-
-
-  <table name="teacher" phpName="teacher">
+  <table name="teacher" phpName="Teacher">
     <column name="id" type="integer" required="true" primaryKey="true" />
     <column name="name" type="varchar" size="128" required="true" />
     <column name="contact_person_name" type="varchar" size="128" required="true" phpName="contactPerson" />
@@ -20,14 +18,14 @@
     </foreign-key>
   </table>
 
-  <table name="user">
+  <table name="user" phpName="User">
     <column name="id" type="integer" required="true" primaryKey="true" autoIncrement="true" />
     <column name="password_hash" type="varchar" size="128" />
     <column name="salt" type="varchar" size="512" />
     <column name="premissions" type="varchar" size="512" />
   </table>
 
-  <table name="session">
+  <table name="session" phpName="Session">
     <column name="id" type="integer" required="true" primaryKey="true" autoIncrement="true" />
     <column name="uid" type="integer" required="true" />
     <foreign-key name="user_id" foreignTable="user">
@@ -36,34 +34,34 @@
     <column name="expires" type="timestamp" required="true" />
   </table>
 
-  <table name="district">
+  <table name="district" phpName="District">
     <column name="id" type="integer" required="true" primaryKey="true" autoIncrement="true" />
     <column name="name" type="varchar" size="32" required="true" />
   </table>
 
-  <table name="block">
+  <table name="block" phpName="Block">
     <column name="id" type="integer" required="true" primaryKey="true" autoIncrement="true" />
     <column name="name" type="varchar" size="32" required="true" />
   </table>
 
-  <table name="cluster">
+  <table name="cluster" phpName="Cluster">
     <column name="id" type="integer" required="true" primaryKey="true" autoIncrement="true" />
     <column name="name" type="varchar" size="32" required="true" />
   </table>
 
-  <table name="school">
+  <table name="school" phpName="School">
     <column name="id" type="integer" required="true" primaryKey="true" autoIncrement="true" />
     <column name="name" type="varchar" size="128" required="true" />
     <column name="address" type="varchar" size="256" required="true" />
   </table>
 
-  <table name="organization">
+  <table name="organization" phpName="Organization">
     <column name="id" type="integer" required="true" primaryKey="true" autoIncrement="true" />
     <column name="name" type="varchar" size="128" required="true" />
     <column name="type" type="varchar" size="8" required="true" />
   </table>
 
-  <table name="documents">
+  <table name="documents" phpName="Document">
     <column name="id" type="integer" required="true" primaryKey="true" autoIncrement="true" />
     <column name="name" type="varchar" size="128" required="true" />
   </table>

@@ -1,8 +1,8 @@
 <?php
 
-// setup the autoloading
-require_once '../vendor/autoload.php';
+set_include_path($_SERVER['DOCUMENT_ROOT'].'/vendor');
+set_include_path($_SERVER['DOCUMENT_ROOT'].'/includes');
 
-// setup Propel
-require_once '../datastore/generated-conf/config.php';
+require_once 'vendor/autoload.php';
+require_once 'datastore/generated-conf/config.php';
 

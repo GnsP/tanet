@@ -3,3 +3,4 @@ node_modules
 datastore/generated-sql
 datastore/generated-conf
 datastore/tanet
+*.swp
