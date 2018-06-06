@@ -1,34 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <database name="default" defaultIdMethod="native" namespace="DB" defaultPhpNamingMethod="underscore">
 
-  <table name="teacher" phpName="Teacher">
+  <table name="person" phpName="Person">
     <column name="id" type="integer" required="true" primaryKey="true" />
     <column name="name" type="varchar" size="128" required="true" />
     <column name="contact_person_name" type="varchar" size="128" required="true" phpName="contactPerson" />
     <column name="dob" type="date" required="true" phpName="dateOfBirth" />
     <column name="photo_url" type="varchar" size="128" required="true" phpName="photoURL" />
 
-    <column name="primary_phone" type="varchar" size="15" required="true" phpName="primaryPhone" />
     <column name="whatsapp_number" type="varchar" size="15" phpName="whatsappNumber" />
     <column name="email" type="varchar" size="128" />
     <column name="present_address" type="varchar" size="512" phpName="presentAddress" />
 
-    <foreign-key name="user_id" foreignTable="user">
+    <foreign-key name="person_user_id" foreignTable="user">
       <reference local="id" foreign="id" />
+    </foreign-key>
+
+    <unique>
+      <unique-column name="whatsapp_number" />
+      <unique-column name="email" />
+    </unique>
+  </table>
+
+  <table name="teacher" phpName="Teacher">
+    <column name="id" type="integer" required="true" primaryKey="true" />
+    <column name="school_id" type="integer" required="true" />
+    <foreign-key name="teacher_person_id" foreignTable="person">
+      <reference local="id" foreign="id" />
+    </foreign-key>
+    <foreign-key name="teacher_school_id" foreignTable="school">
+      <reference local="school_id" foreign="id" />
     </foreign-key>
   </table>
 
   <table name="user" phpName="User">
     <column name="id" type="integer" required="true" primaryKey="true" autoIncrement="true" />
-    <column name="password_hash" type="varchar" size="128" />
-    <column name="salt" type="varchar" size="512" />
-    <column name="premissions" type="varchar" size="512" />
+    <column name="user_name" type="varchar" size="16" />
+    <column name="primary_phone" type="varchar" size="15" required="true" phpName="primaryPhone" />
+    <column name="password_hash" type="varchar" size="128" required="true" />
+    <column name="salt" type="varchar" size="512" required="true" />
+    <column name="premissions" type="varchar" size="512" required="true" />
+
+    <unique>
+      <unique-column name="user_name" />
+      <unique-column name="primary_phone" />
+    </unique>
   </table>
 
   <table name="session" phpName="Session">
     <column name="id" type="integer" required="true" primaryKey="true" autoIncrement="true" />
     <column name="uid" type="integer" required="true" />
-    <foreign-key name="user_id" foreignTable="user">
+    <foreign-key name="session_user_id" foreignTable="user">
       <reference local="uid" foreign="id" />
     </foreign-key>
     <column name="expires" type="timestamp" required="true" />
@@ -42,17 +64,29 @@
   <table name="block" phpName="Block">
     <column name="id" type="integer" required="true" primaryKey="true" autoIncrement="true" />
     <column name="name" type="varchar" size="32" required="true" />
+    <column name="district_id" type="integer" required="true" />
+    <foreign-key name="block_district_id" foreignTable="district">
+      <reference local="district_id" foreign="id" />
+    </foreign-key>
   </table>
 
   <table name="cluster" phpName="Cluster">
     <column name="id" type="integer" required="true" primaryKey="true" autoIncrement="true" />
     <column name="name" type="varchar" size="32" required="true" />
+    <column name="block_id" type="integer" required="true" />
+    <foreign-key name="cluster_block_id" foreignTable="block">
+      <reference local="block_id" foreign="id" />
+    </foreign-key>
   </table>
 
   <table name="school" phpName="School">
     <column name="id" type="integer" required="true" primaryKey="true" autoIncrement="true" />
     <column name="name" type="varchar" size="128" required="true" />
     <column name="address" type="varchar" size="256" required="true" />
+    <column name="cluster_id" type="integer" required="true" />
+    <foreign-key name="school_cluster_id" foreignTable="cluster">
+      <reference local="cluster_id" foreign="id" />
+    </foreign-key>
   </table>
 
   <table name="organization" phpName="Organization">
