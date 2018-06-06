@@ -28,7 +28,7 @@
   <table name="session" phpName="Session">
     <column name="id" type="integer" required="true" primaryKey="true" autoIncrement="true" />
     <column name="uid" type="integer" required="true" />
-    <foreign-key name="user_id" foreignTable="user">
+    <foreign-key name="name_id" foreignTable="user">
       <reference local="uid" foreign="id" />
     </foreign-key>
     <column name="expires" type="timestamp" required="true" />
