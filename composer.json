@@ -5,7 +5,7 @@
     },
     "autoload": {
         "psr-4": {
-            "tanet\\": ["modules/", "datastore/tanet", "api/"]
+            "tanet\\": ["modules/", "datastore/DB", "api/"]
         }
     }
 }
