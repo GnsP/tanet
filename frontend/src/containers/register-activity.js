@@ -31,8 +31,12 @@ export class RegisterActivityComponent extends Component {
               <input type='text' />
             </fieldset>
             <fieldset>
-              <label> Address </label>
-              <textarea />
+              <label> Password </label>
+              <input type='text' />
+            </fieldset>
+            <fieldset>
+              <label> Confirm Password </label>
+              <input type='text' />
             </fieldset>
             <button onClick={this.props.register}>Register</button>
           </form>
