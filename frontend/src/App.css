@@ -1,1 +1,13 @@
+html {
+  font-size: 16px;
+}
 
+.pad-header {
+  padding: 1em 4em;
+}
+
+.background-container {
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
